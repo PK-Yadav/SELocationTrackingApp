@@ -25,7 +25,18 @@ public class Driver implements Serializable {
 
 	@Column(name = "licence_number") private String licenceNumber;
 
-	@Column(name = "mobile_number") private BigInteger mobileNumber;
+	@Column(name = "mobile_number") private String mobileNumber;
+
+	@Column(name = "entry_dt")
+	private Date entryDt;
+
+	public Date getEntryDt() {
+		return entryDt;
+	}
+
+	public void setEntryDt(Date entryDt) {
+		this.entryDt = entryDt;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -51,11 +62,11 @@ public class Driver implements Serializable {
 		this.licenceNumber = licenceNumber;
 	}
 
-	public BigInteger getMobileNumber() {
+	public String getMobileNumber() {
 		return mobileNumber;
 	}
 
-	public void setMobileNumber(BigInteger mobileNumber) {
+	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 
