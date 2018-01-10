@@ -36,14 +36,17 @@ import java.util.List;
 	 */
 	@RequestMapping(value = "driver/{id}", method = RequestMethod.GET, produces = {
 			MediaType.APPLICATION_JSON_VALUE }) public ResponseEntity<Driver> getDriverById(@PathVariable("id") int id) {
-		Driver Driver = null;
+		Driver driver = null;
 		try {
-			Driver = driverController.getDriverById(id);
+			driver = driverController.getDriverById(id);
+			if(null == driver){
+				return new ResponseEntity<Driver>(HttpStatus.NOT_FOUND);
+			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			return new ResponseEntity<Driver>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<Driver>(driver,HttpStatus.BAD_REQUEST);
 		}
-		return new ResponseEntity<Driver>(Driver, HttpStatus.OK);
+		return new ResponseEntity<Driver>(driver, HttpStatus.OK);
 	}
 
 	/**
@@ -99,6 +102,9 @@ import java.util.List;
 		List<AssetTrackingRecord> trackingRecords = null;
 		try {
 			trackingRecords = assetTrackingRdcontroller.getAssetTrackingRecordBy(deviceId, driverId, assetType, startTime, endTime);
+			if(null == trackingRecords && trackingRecords.isEmpty()){
+				return new ResponseEntity<List<AssetTrackingRecord>>(HttpStatus.NOT_FOUND);
+			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return new ResponseEntity<List<AssetTrackingRecord>>(trackingRecords, HttpStatus.BAD_REQUEST);
