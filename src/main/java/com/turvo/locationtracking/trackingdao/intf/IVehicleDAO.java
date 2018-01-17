@@ -1,14 +1,14 @@
-package com.turvo.locationtracking.trackingdaointf;
+package com.turvo.locationtracking.trackingdao.intf;
 
 import com.turvo.locationtracking.entity.Vehicle;
 
 public interface IVehicleDAO{
 	/**
 	 *
-	 * @param id
+	 * @param vehicleId
 	 * @return
 	 */
-	Vehicle getVehicleById(int id) throws Exception;
+	Vehicle getVehicleById(int vehicleId) throws Exception;
 
 	/**
 	 *

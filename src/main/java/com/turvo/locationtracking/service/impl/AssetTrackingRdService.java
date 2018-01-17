@@ -1,20 +1,18 @@
-package com.turvo.locationtracking.serviceimpl;
+package com.turvo.locationtracking.service.impl;
 
 import com.turvo.locationtracking.dto.AssetTrackingRecordDTO;
 import com.turvo.locationtracking.mapper.AssetTrackingRecordMapper;
-import com.turvo.locationtracking.mapper.DriverMapper;
-import com.turvo.locationtracking.serviceintf.IAssetTrackingRdService;
+import com.turvo.locationtracking.service.intf.IAssetTrackingRdService;
 import com.turvo.locationtracking.entity.AssetTrackingRecord;
-import com.turvo.locationtracking.trackingdaointf.IAssetTrackingDAO;
-import com.turvo.locationtracking.trackingdaointf.IDriverDAO;
-import com.turvo.locationtracking.trackingdaointf.IVehicleDAO;
+import com.turvo.locationtracking.trackingdao.intf.IAssetTrackingDAO;
+import com.turvo.locationtracking.trackingdao.intf.IDriverDAO;
+import com.turvo.locationtracking.trackingdao.intf.IVehicleDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -35,6 +33,7 @@ public class AssetTrackingRdService implements IAssetTrackingRdService {
 	private IDriverDAO driverDAO;
 
 	@Qualifier("vehicleDAO")
+	@Autowired
 	private IVehicleDAO vehicleDAO;
 
 	@Override public AssetTrackingRecord storeTrackingRecord(AssetTrackingRecordDTO assetTrackingRecordDTO) throws Exception{

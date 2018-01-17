@@ -1,4 +1,4 @@
-package com.turvo.locationtracking.serviceintf;
+package com.turvo.locationtracking.service.intf;
 
 import com.google.gson.JsonObject;
 import com.turvo.locationtracking.dto.AssetTrackingRecordDTO;

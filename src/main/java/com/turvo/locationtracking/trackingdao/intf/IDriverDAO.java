@@ -1,4 +1,4 @@
-package com.turvo.locationtracking.trackingdaointf;
+package com.turvo.locationtracking.trackingdao.intf;
 
 import com.turvo.locationtracking.entity.Driver;
 

@@ -1,19 +1,14 @@
-package com.turvo.locationtracking.serviceimpl;
+package com.turvo.locationtracking.service.impl;
 
-import com.google.gson.JsonObject;
 import com.turvo.locationtracking.dto.DriverDTO;
-import com.turvo.locationtracking.entity.Vehicle;
 import com.turvo.locationtracking.mapper.DriverMapper;
-import com.turvo.locationtracking.serviceintf.IDriverService;
+import com.turvo.locationtracking.service.intf.IDriverService;
 import com.turvo.locationtracking.entity.Driver;
-import com.turvo.locationtracking.trackingdaointf.IDriverDAO;
-import com.turvo.locationtracking.trackingdaointf.IVehicleDAO;
+import com.turvo.locationtracking.trackingdao.intf.IDriverDAO;
+import com.turvo.locationtracking.trackingdao.intf.IVehicleDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * This is Driver serviceimpl class which has implemented IDriverService interface

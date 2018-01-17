@@ -1,8 +1,8 @@
-package com.turvo.locationtracking.trackingdaoimpl;
+package com.turvo.locationtracking.trackingdao.impl;
 
 import com.turvo.locationtracking.entity.Driver;
 import com.turvo.locationtracking.itrackingrepository.IDriverRepo;
-import com.turvo.locationtracking.trackingdaointf.IDriverDAO;
+import com.turvo.locationtracking.trackingdao.intf.IDriverDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

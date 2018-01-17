@@ -1,5 +1,7 @@
 package com.turvo.locationtracking.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -38,10 +40,12 @@ public class AssetTrackingRecord implements Serializable{
 
 	@JoinColumn(name = "driver_id", referencedColumnName = "driver_id")
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
+	@JsonIgnore
 	private Driver driver;
 
 	@JoinColumn(name = "vehicle_id", referencedColumnName = "vehicle_id")
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
+	@JsonIgnore
 	private Vehicle vehicle;
 
 	@Temporal(TemporalType.TIMESTAMP)

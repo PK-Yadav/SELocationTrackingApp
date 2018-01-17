@@ -1,17 +1,15 @@
-package com.turvo.locationtracking.trackingdaoimpl;
+package com.turvo.locationtracking.trackingdao.impl;
 
 import com.turvo.locationtracking.entity.Vehicle;
 import com.turvo.locationtracking.itrackingrepository.IVehicleRepository;
-import com.turvo.locationtracking.trackingdaointf.IVehicleDAO;
+import com.turvo.locationtracking.trackingdao.intf.IVehicleDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
 @Transactional
-@Qualifier("vehicleDAO")
-@Repository
+@Service("vehicleDAO")
 public class VehicleDAO implements IVehicleDAO{
 
 	@Autowired

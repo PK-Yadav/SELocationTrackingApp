@@ -1,17 +1,13 @@
-package com.turvo.locationtracking.serviceimpl;
+package com.turvo.locationtracking.service.impl;
 
-import com.google.gson.JsonObject;
 import com.turvo.locationtracking.dto.VehicleDTO;
 import com.turvo.locationtracking.entity.Vehicle;
 import com.turvo.locationtracking.mapper.VehicleMapper;
-import com.turvo.locationtracking.serviceintf.IVehicleService;
-import com.turvo.locationtracking.trackingdaointf.IDriverDAO;
-import com.turvo.locationtracking.trackingdaointf.IVehicleDAO;
+import com.turvo.locationtracking.service.intf.IVehicleService;
+import com.turvo.locationtracking.trackingdao.intf.IDriverDAO;
+import com.turvo.locationtracking.trackingdao.intf.IVehicleDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.Date;
 
 @Service("vehicleService")
 public class VehicleService implements IVehicleService {
