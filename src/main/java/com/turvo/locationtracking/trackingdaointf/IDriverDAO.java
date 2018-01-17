@@ -1,6 +1,6 @@
-package com.turvo.locationtracking.trackingdaointerface;
+package com.turvo.locationtracking.trackingdaointf;
 
-import com.turvo.locationtracking.datacontract.Driver;
+import com.turvo.locationtracking.entity.Driver;
 
 /**
  * This is dao interface for Driver table, will provide all dao calls methods related to table
@@ -15,12 +15,12 @@ public interface IDriverDAO{
 	 * @param id
 	 * @return
 	 */
-	Driver getDriverById(int id);
+	Driver getDriverById(int id) throws Exception;
 
 	/**
 	 *
 	 * @param driver
 	 * @return
 	 */
-	void registerDriver(Driver driver);
+	void registerDriver(Driver driver) throws Exception;
 }

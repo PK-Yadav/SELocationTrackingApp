@@ -1,8 +1,7 @@
-package com.turvo.locationtracking.datacontract;
+package com.turvo.locationtracking.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.*;
 
 /**
@@ -12,23 +11,48 @@ import java.util.*;
  * @version 1.0
  */
 @Entity
-@Table(name = "Driver")
+@Table(name = "driver")
 public class Driver implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy = GenerationType.AUTO) @Column(name = "driver_id") private int driverId;
 
-	@Column(name = "first_name") private String firstName;
+	@Column(name = "name") private String name;
 
-	@Column(name = "last_name") private String lastName;
+	@Column(name = "address") private String address;
 
 	@Column(name = "licence_number") private String licenceNumber;
 
 	@Column(name = "mobile_number") private String mobileNumber;
 
-	@Column(name = "entry_dt")
-	private Date entryDt;
+	@Temporal(TemporalType.TIMESTAMP) @Column(name = "entry_dt") private Date entryDt;
+
+	@OneToMany(mappedBy = "driver") private Set<AssetTrackingRecord> trackingRecords = new HashSet<>(0);
+
+	public String getName() {
+		return name;
+	}
+
+	public Set<AssetTrackingRecord> getTrackingRecords() {
+		return trackingRecords;
+	}
+
+	public void setTrackingRecords(Set<AssetTrackingRecord> trackingRecords) {
+		this.trackingRecords = trackingRecords;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 	public Date getEntryDt() {
 		return entryDt;
@@ -36,22 +60,6 @@ public class Driver implements Serializable {
 
 	public void setEntryDt(Date entryDt) {
 		this.entryDt = entryDt;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 
 	public String getLicenceNumber() {

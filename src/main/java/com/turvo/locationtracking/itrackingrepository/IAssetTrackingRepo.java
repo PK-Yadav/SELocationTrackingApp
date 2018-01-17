@@ -1,10 +1,10 @@
 package com.turvo.locationtracking.itrackingrepository;
 
-import com.turvo.locationtracking.datacontract.AssetTrackingRecord;
+import com.turvo.locationtracking.entity.AssetTrackingRecord;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 /**
  * This is repository class to perform sql operation on AssetTrackingRecord table, with different criteria
@@ -14,15 +14,5 @@ import java.util.List;
  */
 public interface IAssetTrackingRepo extends CrudRepository<AssetTrackingRecord, Integer>{
 
-	/**
-	 *
-	 * @param deviceId
-	 * @param driverId
-	 * @param assetType
-	 * @param startDate
-	 * @param endDate
-	 * @return
-	 */
-	List<AssetTrackingRecord> findByDeviceIdAndDriverIdAndAssetTypeAndTimeStampBetween(String deviceId, int driverId, String assetType, Date startDate, Date endDate);
-
+	Set<AssetTrackingRecord> findByTimeStampBetweenAndDriver_DriverIdAndVehicle_VehicleId( Date startTime, Date endTime, int driverId, int vehicleId);
 }

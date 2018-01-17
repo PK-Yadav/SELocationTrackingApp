@@ -1,11 +1,10 @@
-package com.turvo.locationtracking.trackingdao;
+package com.turvo.locationtracking.trackingdaoimpl;
 
-import com.turvo.locationtracking.datacontract.Driver;
+import com.turvo.locationtracking.entity.Driver;
 import com.turvo.locationtracking.itrackingrepository.IDriverRepo;
-import com.turvo.locationtracking.trackingdaointerface.IDriverDAO;
+import com.turvo.locationtracking.trackingdaointf.IDriverDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
@@ -16,15 +15,14 @@ import javax.transaction.Transactional;
  * @version 1.0
  */
 @Transactional
-@Qualifier("driverDAO")
-@Repository
+@Service("driverDAO")
 public class DriverDAO implements IDriverDAO {
 
 	@Autowired
 	private IDriverRepo driverRepo;
 
 	@Override
-	public void registerDriver(Driver driver) {
+	public void registerDriver(Driver driver) throws Exception{
 		driverRepo.save(driver);
 	}
 

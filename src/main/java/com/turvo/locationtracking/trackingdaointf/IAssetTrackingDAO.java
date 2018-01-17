@@ -1,9 +1,10 @@
-package com.turvo.locationtracking.trackingdaointerface;
+package com.turvo.locationtracking.trackingdaointf;
 
-import com.turvo.locationtracking.datacontract.AssetTrackingRecord;
+import com.turvo.locationtracking.entity.AssetTrackingRecord;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 /**
  * This is dao interface for AssettrackingRecord table, will provide all dao calls methods related to table
@@ -16,14 +17,13 @@ public interface IAssetTrackingDAO{
 
 	/**
 	 *
-	 * @param deviceId
+	 * @param vehicleId
 	 * @param driverId
-	 * @param assetType
 	 * @param startDate
 	 * @param endDate
 	 * @return
 	 */
-	public List<AssetTrackingRecord> getAssetTrackingRecordBy(String deviceId, int driverId, String assetType, Date startDate, Date endDate) throws Exception;
+	public Set<AssetTrackingRecord> getAssetTrackingRecordBy(int vehicleId, int driverId, Date startDate, Date endDate) throws Exception;
 
 	/**
 	 *
@@ -31,4 +31,5 @@ public interface IAssetTrackingDAO{
 	 * @return
 	 */
 	void addTrackingRecord(AssetTrackingRecord assetTrackingRecord) throws Exception;
+
 }
